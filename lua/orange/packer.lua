@@ -16,7 +16,7 @@ return require('packer').startup(function(use)
 	use({
 		'sainnhe/everforest',
 		config = function()
-            vim.cmd('set background = dark')
+            vim.cmd("let g:everforest_background = \'hard\'")
 			vim.cmd('colorscheme everforest')
 		end
 	})
@@ -29,27 +29,21 @@ return require('packer').startup(function(use)
 		end,}
 		use("nvim-treesitter/playground")
 		use("mbbill/undotree")
-		use {
-			'VonHeikemen/lsp-zero.nvim',
-			branch = 'v1.x',
-			requires = {
-				-- LSP Support
-				{'neovim/nvim-lspconfig'},
-				{'williamboman/mason.nvim'},
-				{'williamboman/mason-lspconfig.nvim'},
+        use {
+            'VonHeikemen/lsp-zero.nvim',
+            branch = 'v3.x',
+            requires = {
+                --- Uncomment the two plugins below if you want to manage the language servers from neovim
+                {'williamboman/mason.nvim'},
+                {'williamboman/mason-lspconfig.nvim'},
 
-				-- Autocompletion
-				{'hrsh7th/nvim-cmp'},
-				{'hrsh7th/cmp-buffer'},
-				{'hrsh7th/cmp-path'},
-				{'saadparwaiz1/cmp_luasnip'},
-				{'hrsh7th/cmp-nvim-lsp'},
-				{'hrsh7th/cmp-nvim-lua'},
-
-				-- Snippets
-				{'L3MON4D3/LuaSnip'},
-				{'rafamadriz/friendly-snippets'},
-			}
-		}
+                -- LSP Support
+                {'neovim/nvim-lspconfig'},
+                -- Autocompletion
+                {'hrsh7th/nvim-cmp'},
+                {'hrsh7th/cmp-nvim-lsp'},
+                {'L3MON4D3/LuaSnip'},
+            }
+        }
 		use("github/copilot.vim")
 	end)
